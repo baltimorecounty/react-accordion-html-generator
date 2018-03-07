@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { AccordionBuilder } from './index';
 
 class AccordionaterOutput extends Component {
 	render() {

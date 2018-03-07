@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Accordionater, AccordionaterOutput } from './components';
-import AppCss from './App.css';
+import AppCss from './App.css'; // eslint-disable-line
 
 class App extends Component {
 	render() {

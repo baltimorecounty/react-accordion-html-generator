@@ -54,7 +54,9 @@ class App extends Component {
 		});
 
 		const code = 
-		`<div aria-multiselectable="true" class="content-accordion" id="${this.state.accordionTitleForIds}" role="tablist">${output}</div>`;
+		`<!-- BEGIN ${this.state.accordionTitleForIds} ACCORDION -->
+		<div aria-multiselectable="true" class="content-accordion" id="${this.state.accordionTitleForIds}" role="tablist">${output}</div>
+		<!-- END ${this.state.accordionTitleForIds} ACCORDION -->`;
 
 		this.setState({ code });
 	}

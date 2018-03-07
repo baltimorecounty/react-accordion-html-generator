@@ -10,11 +10,13 @@ class App extends Component {
 			accordionatorHtmlOutput: [],
 			code: '',
 			accordionTitleForIds: '',
+			headingType: 'h4',
 		};
 
 		this.handleWizzyChange = this.handleWizzyChange.bind(this);
 		this.handleGenerateCodeClick = this.handleGenerateCodeClick.bind(this);
 		this.handleAccordionTitleChange = this.handleAccordionTitleChange.bind(this);
+		this.handleHeadingTypeChange = this.handleHeadingTypeChange.bind(this);
 	}
 
 	handleAccordionTitleChange(accordionTitle) {
@@ -29,7 +31,7 @@ class App extends Component {
 
 			output = output +
 			`<div class="panel">
-				<h4 id="${panelTitle}-heading-${index}">
+				<${this.state.headingType} id="${panelTitle}-heading-${index}">
 					<a aria-controls="${panelTitle}-panel-${index}" 
 						aria-expanded="false" 
 						class="collapsed flex flex-row" 
@@ -39,7 +41,7 @@ class App extends Component {
 						<i aria-hidden="true" class="fa fa-chevron-right">&nbsp;</i>
 						<span class="flex">${outputObject.title}</span>
 					</a>
-				</h4>
+				</${this.state.headingType}>
 				<div aria-labelledby="${panelTitle}-heading-${index}" class="collapse content-accordion-body" id="${panelTitle}-panel-${index}" role="tabpanel">
 					<div class="wrapper">
 						${outputObject.body}
@@ -47,14 +49,18 @@ class App extends Component {
 				</div>
 			</div>
 			`;
+
+			return output;
 		});
 
 		const code = 
-		`<div aria-multiselectable="true" class="content-accordion" id="${this.state.accordionTitleForIds}" role="tablist">
-			${output}
-		</div>`;
+		`<div aria-multiselectable="true" class="content-accordion" id="${this.state.accordionTitleForIds}" role="tablist">${output}</div>`;
 
 		this.setState({ code });
+	}
+
+	handleHeadingTypeChange(headingType) {
+		this.setState({ headingType });
 	}
 
 	handleWizzyChange(title, body, index) {
@@ -99,7 +105,9 @@ class App extends Component {
 				<Accordionater 
 					onWizzyChange={this.handleWizzyChange} 
 					onGenerateCodeClick={this.handleGenerateCodeClick} 
-					onAccordionTitleChange={this.handleAccordionTitleChange} />
+					onAccordionTitleChange={this.handleAccordionTitleChange} 
+					onHeadingTypeChange={this.handleHeadingTypeChange}
+				/>
 				<br/>
 				<AccordionaterOutput value={this.state.code} />
 			</div>

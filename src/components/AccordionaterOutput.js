@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import pretty from 'pretty';
 
 class AccordionaterOutput extends Component {
 	render() {
@@ -7,8 +8,10 @@ class AccordionaterOutput extends Component {
 				<div className="col-md-12">
 					<div className="well">
 						<div className="form-group">
-							<label htmlFor="code-block">Generated code</label>
-							<textarea id="code-block" rows="10" className="form-control" readOnly value={this.props.value}></textarea>
+							<h4>Generated code</h4>
+							<pre>
+								<code>{pretty(this.props.value)}</code>
+							</pre>
 						</div>
 					</div>
 				</div>

@@ -9,11 +9,18 @@ class AccordionaterHeading extends Component {
 		};
 
 		this.handleAccordionTitleChange = this.handleAccordionTitleChange.bind(this);
+		this.handleHeadingTypeChange = this.handleHeadingTypeChange.bind(this);
 	}
 
 	handleAccordionTitleChange(changeEvent) {
 		if (this.props.onAccordionTitleChange) {
 			this.props.onAccordionTitleChange(changeEvent.target.value);
+		}
+	}
+
+	handleHeadingTypeChange(changeEvent) {
+		if (this.props.onHeadingTypeChange) {
+			this.props.onHeadingTypeChange(changeEvent.target.value);
 		}
 	}
 
@@ -28,7 +35,7 @@ class AccordionaterHeading extends Component {
 						</div>	
 						<div className="form-group">
 							<label htmlFor="headingType">Heading type</label>
-							<select id="headingType" className="form-control" defaultValue="Heading level 4 (h4)">
+							<select id="headingType" className="form-control" defaultValue="h4" onChange={this.handleHeadingTypeChange}>
 								<option value="h1">Heading level 1 (h1)</option>
 								<option value="h2">Heading level 2 (h2)</option>
 								<option value="h3">Heading level 3 (h3)</option>

@@ -5,6 +5,7 @@
   "dependencies": {
     "node-sass-chokidar": "^1.1.0",
     "npm-run-all": "^4.1.2",
+    "pretty": "^2.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-rte": "^0.16.1",
@@ -16,7 +17,8 @@
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
-    "build": "npm-run-all build-css build-js",    "test": "react-scripts test --env=jsdom",
+    "build": "npm-run-all build-css build-js",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }

@@ -14,6 +14,7 @@ class Accordionater extends Component {
 		this.handleGenerateClodeClick = this.handleGenerateClodeClick.bind(this);
 		this.handleAddPanelClick = this.handleAddPanelClick.bind(this);
 		this.handleAccordionTitleChange = this.handleAccordionTitleChange.bind(this);
+		this.handleHeadingTypeChange = this.handleHeadingTypeChange.bind(this);
 	}
 
 	generateAccordionBuilders() {
@@ -50,6 +51,12 @@ class Accordionater extends Component {
 		}
 	}
 
+	handleHeadingTypeChange(value) {
+		if (this.props.onHeadingTypeChange) {
+			this.props.onHeadingTypeChange(value);
+		}
+	}
+
 	render() {
 		const accordions = [];
 
@@ -59,7 +66,10 @@ class Accordionater extends Component {
 
 		return (
 			<div className="accordion-builder-wrapper">
-				<AccordionaterHeading onAccordionTitleChange={this.handleAccordionTitleChange} />
+				<AccordionaterHeading 
+					onAccordionTitleChange={this.handleAccordionTitleChange} 
+					onHeadingTypeChange={this.handleHeadingTypeChange}
+				/>
 				{ accordions }
 				<div className="row">
 					<div className="col-md-12">

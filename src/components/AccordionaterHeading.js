@@ -40,6 +40,7 @@ class AccordionaterHeading extends Component {
 								<option value="h2">Heading level 2 (h2)</option>
 								<option value="h3">Heading level 3 (h3)</option>
 								<option value="h4">Heading level 4 (h4)</option>
+								<option value="p">Paragraph</option>
 							</select>
 						</div>					
 					</div>

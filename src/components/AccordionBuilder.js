@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import { Wizzy } from './index';
 
 class AccordionBuilder extends Component {
+	constructor(props) {
+		super(props);
+
+		this.handleWizzyChange = this.handleWizzyChange.bind(this);
+	}
+
+	handleWizzyChange(value) {
+		if (this.props.handleWizzyChange) {
+			this.props.handleWizzyChange(value);
+		}
+	}
+
 	render() {
 		return (
 			<div className="accordion-builder">
@@ -13,7 +25,7 @@ class AccordionBuilder extends Component {
 						</div>
 						<div className="form-group">
 							<label htmlFor={`accordion-builder-content-${this.props.index}`}>Panel Body</label>
-							<Wizzy />
+							<Wizzy onChange={this.handleWizzyChange} />
 							{ /* <textarea id={`accordion-builder-content-${this.props.index}`} className="form-control" rows="5"></textarea> */ }
 						</div>	
 						<hr/>					

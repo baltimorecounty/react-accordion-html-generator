@@ -10,6 +10,7 @@ class Accordionater extends Component {
 		};
 
 		this.generateAccordionBuilders = this.generateAccordionBuilders.bind(this);
+		this.handleWizzyChange = this.handleWizzyChange.bind(this);
 	}
 
 	generateAccordionBuilders() {
@@ -22,6 +23,12 @@ class Accordionater extends Component {
 		}
 
 		return accordions;
+	}
+
+	handleWizzyChange(value) {
+		if (this.props.handleWizzyChange) {
+			this.props.handleWizzyChange(value);
+		}
 	}
 
 	render() {

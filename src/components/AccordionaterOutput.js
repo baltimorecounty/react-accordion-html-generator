@@ -8,7 +8,7 @@ class AccordionaterOutput extends Component {
 					<div className="well">
 						<div className="form-group">
 							<label htmlFor="code-block">Generated code</label>
-							<textarea id="code-block" rows="5" className="form-control" readonly="readonly"></textarea>
+							<textarea id="code-block" rows="5" className="form-control" readonly="readonly" value={this.props.value}></textarea>
 						</div>
 					</div>
 				</div>

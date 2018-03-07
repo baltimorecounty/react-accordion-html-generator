@@ -1,1 +1,3 @@
-export * from './accordion-builder';
+export * from './AccordionBuilder';
+export * from './Accordionater';
+export * from './Wizzy';

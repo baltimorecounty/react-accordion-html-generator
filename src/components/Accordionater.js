@@ -70,6 +70,7 @@ class Accordionater extends Component {
 					onAccordionTitleChange={this.handleAccordionTitleChange} 
 					onHeadingTypeChange={this.handleHeadingTypeChange}
 				/>
+				<hr />
 				{ accordions }
 				<div className="row">
 					<div className="col-md-12">

@@ -30,7 +30,11 @@ class App extends Component {
 			output = output +
 			`<div class="panel">
 				<h4 id="${panelTitle}-heading-${index}">
-					<a aria-controls="${panelTitle}-panel-${index}" aria-expanded="false" class="collapsed flex flex-row" data-parent="#${this.state.accordionTitleForIds}" data-toggle="collapse"
+					<a aria-controls="${panelTitle}-panel-${index}" 
+						aria-expanded="false" 
+						class="collapsed flex flex-row" 
+						data-parent="#${this.state.accordionTitleForIds}" 
+						data-toggle="collapse"
 						href="#${panelTitle}-panel-${index}" role="button">
 						<i aria-hidden="true" class="fa fa-chevron-right">&nbsp;</i>
 						<span class="flex">${outputObject.title}</span>
@@ -41,10 +45,14 @@ class App extends Component {
 						${outputObject.body}
 					</div>
 				</div>
-			</div>`;
+			</div>
+			`;
 		});
 
-		const code = `<div aria-multiselectable="true" class="content-accordion" id="${this.state.accordionTitleForIds}" role="tablist">${output}</div>`;
+		const code = 
+		`<div aria-multiselectable="true" class="content-accordion" id="${this.state.accordionTitleForIds}" role="tablist">
+			${output}
+		</div>`;
 
 		this.setState({ code });
 	}

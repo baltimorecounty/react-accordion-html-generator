@@ -14,9 +14,8 @@ class Wizzy extends Component {
 
 	onRichTextEditorChange(value) {
 		this.setState({ value });
-
 		if (this.props.onChange) {
-			this.props.onChange(value.createValueFromString('html'));
+			this.props.onChange(value.toString('html'));
 		}
 	}
 

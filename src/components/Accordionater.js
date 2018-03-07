@@ -11,6 +11,9 @@ class Accordionater extends Component {
 
 		this.generateAccordionBuilders = this.generateAccordionBuilders.bind(this);
 		this.handleWizzyChange = this.handleWizzyChange.bind(this);
+		this.handleGenerateClodeClick = this.handleGenerateClodeClick.bind(this);
+		this.handleAddPanelClick = this.handleAddPanelClick.bind(this);
+		this.handleAccordionTitleChange = this.handleAccordionTitleChange.bind(this);
 	}
 
 	generateAccordionBuilders() {
@@ -25,9 +28,25 @@ class Accordionater extends Component {
 		return accordions;
 	}
 
-	handleWizzyChange(value) {
-		if (this.props.handleWizzyChange) {
-			this.props.handleWizzyChange(value);
+	handleWizzyChange(title, value, index) {
+		if (this.props.onWizzyChange) {
+			this.props.onWizzyChange(title, value, index);
+		}
+	}
+
+	handleGenerateClodeClick() {
+		if (this.props.onGenerateCodeClick) {
+			this.props.onGenerateCodeClick();
+		}
+	}
+
+	handleAddPanelClick() {
+		this.setState({ panelCount: this.state.panelCount + 1})
+	}
+
+	handleAccordionTitleChange(value) {
+		if (this.props.onAccordionTitleChange) {
+			this.props.onAccordionTitleChange(value);
 		}
 	}
 
@@ -35,17 +54,17 @@ class Accordionater extends Component {
 		const accordions = [];
 
 		for (let x = 0; x < this.state.panelCount; x += 1) {
-			accordions.push(<AccordionBuilder index={x} key={`panel${x}`} />);
+			accordions.push(<AccordionBuilder index={x} key={`panel${x}`} onWizzyChange={(title, value) => this.handleWizzyChange(title, value, x)} />);
 		}
 
 		return (
 			<div className="accordion-builder-wrapper">
-				<AccordionaterHeading />
+				<AccordionaterHeading onAccordionTitleChange={this.handleAccordionTitleChange} />
 				{ accordions }
 				<div className="row">
 					<div className="col-md-12">
-						<button className="btn btn-primary" onClick={() => this.setState({ panelCount: this.state.panelCount + 1})}>Add a panel</button> &nbsp;
-						<button className="btn btn-danger">Generate code</button>
+						<button className="btn btn-primary" onClick={this.handleAddPanelClick}>Add a panel</button> &nbsp;
+						<button className="btn btn-danger" onClick={this.handleGenerateClodeClick}>Generate code</button>
 					</div>
 				</div>
 			</div>

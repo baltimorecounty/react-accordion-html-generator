@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AccordionBuilder } from './index';
+import { AccordionBuilder, AccordionaterHeading } from './index';
 
 class Accordionater extends Component {
 	constructor(props) {
@@ -33,16 +33,7 @@ class Accordionater extends Component {
 
 		return (
 			<div className="accordion-builder-wrapper">
-				<div className="row">
-					<div className="col-md-12">
-						<div className="well">
-							<div className="form-group">
-								<label htmlFor="accordion-title">Accordion title (used for IDs)</label>
-								<input type="text" id="accordion-title" className="form-control" />
-							</div>						
-						</div>
-					</div>
-				</div>
+				<AccordionaterHeading />
 				{ accordions }
 				<div className="row">
 					<div className="col-md-12">

@@ -17,6 +17,7 @@ class App extends Component {
 		this.handleGenerateCodeClick = this.handleGenerateCodeClick.bind(this);
 		this.handleAccordionTitleChange = this.handleAccordionTitleChange.bind(this);
 		this.handleHeadingTypeChange = this.handleHeadingTypeChange.bind(this);
+		this.generateHtmlFromTemplate = this.generateHtmlFromTemplate.bind(this);
 	}
 
 	handleAccordionTitleChange(accordionTitle) {
@@ -24,29 +25,7 @@ class App extends Component {
 	}
 
 	handleGenerateCodeClick() {
-		const output = this.state.accordionatorHtmlOutput.map((outputObject, index) => {
-			const panelTitle = this.cleanStringForId(outputObject.title);
-
-			return `<div class="panel">
-				<${this.state.headingType} id="${panelTitle}-heading-${index}">
-					<a aria-controls="${panelTitle}-panel-${index}" 
-						aria-expanded="false" 
-						class="collapsed flex flex-row" 
-						data-parent="#${this.state.accordionTitleForIds}" 
-						data-toggle="collapse"
-						href="#${panelTitle}-panel-${index}" role="button">
-						<i aria-hidden="true" class="fa fa-chevron-right">&nbsp;</i>
-						<span class="flex">${outputObject.title}</span>
-					</a>
-				</${this.state.headingType}>
-				<div aria-labelledby="${panelTitle}-heading-${index}" class="collapse content-accordion-body" id="${panelTitle}-panel-${index}" role="tabpanel">
-					<div class="wrapper">
-						${outputObject.body}
-					</div>
-				</div>
-			</div>
-			`;
-		});
+		const output = this.state.accordionatorHtmlOutput.map(this.generateHtmlFromTemplate);
 
 		const code = 
 		`<!-- BEGIN ${this.state.accordionTitleForIds} ACCORDION -->
@@ -87,6 +66,30 @@ class App extends Component {
 		}
 
 		return matches.join('');
+	}
+
+	generateHtmlFromTemplate(outputObject, index) {
+		const panelTitle = this.cleanStringForId(outputObject.title);
+
+		return `<div class="panel">
+			<${this.state.headingType} id="${panelTitle}-heading-${index}">
+				<a aria-controls="${panelTitle}-panel-${index}" 
+					aria-expanded="false" 
+					class="collapsed flex flex-row" 
+					data-parent="#${this.state.accordionTitleForIds}" 
+					data-toggle="collapse"
+					href="#${panelTitle}-panel-${index}" role="button">
+					<i aria-hidden="true" class="fa fa-chevron-right">&nbsp;</i>
+					<span class="flex">${outputObject.title}</span>
+				</a>
+			</${this.state.headingType}>
+			<div aria-labelledby="${panelTitle}-heading-${index}" class="collapse content-accordion-body" id="${panelTitle}-panel-${index}" role="tabpanel">
+				<div class="wrapper">
+					${outputObject.body}
+				</div>
+			</div>
+		</div>
+		`;
 	}
 
 	render() {

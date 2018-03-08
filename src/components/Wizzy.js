@@ -16,6 +16,11 @@ class Wizzy extends Component {
 
 		this.onRichTextEditorChange = this.onRichTextEditorChange.bind(this);
 		this.renderSwitchButton = this.renderSwitchButton.bind(this);
+		this.handleSwitch = this.handleSwitch.bind(this);
+	}
+
+	handleSwitch() {
+		this.setState({ isWizzy: !this.state.isWizzy })
 	}
 
 	onRichTextEditorChange(value) {
@@ -40,7 +45,9 @@ class Wizzy extends Component {
 		if (this.state.isWizzy) {
 			return (
 				<div>
-					<button className="wizzy-switch btn btn-default" onClick={() => this.setState({ isWizzy: !this.state.isWizzy })}>Switch to HTML Editor</button>
+					<div className="wizzy-switch-wrapper">
+						<button className="wizzy-switch btn btn-default" onClick={this.handleSwitch}>Switch to HTML Editor</button>
+					</div>
 					<RichTextEditor 
 						value={this.state.wizzyValue} 
 						onChange={this.onRichTextEditorChange} 
@@ -52,8 +59,10 @@ class Wizzy extends Component {
 
 		return (
 			<div>
-				<button className="wizzy-switch btn btn-default" onClick={() => this.setState({ isWizzy: !this.state.isWizzy })}>Switch to WYSIWYG Editor</button>
-				<span class="danger">Switching back to the WYSIWYG view and making changes will overwrite your pasted HTML. Be careful!</span>
+				<div className="wizzy-switch-wrapper">
+					<button className="wizzy-switch btn btn-default" onClick={this.handleSwitch}>Switch to WYSIWYG Editor</button>
+					<span className="wizzy-switch-danger">Switching back to the WYSIWYG view and making changes will overwrite your pasted HTML. Be careful!</span>
+				</div>
 				<AceEditor
 					mode="html"
 					theme="solarized_light"

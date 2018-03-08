@@ -53,6 +53,7 @@ class Wizzy extends Component {
 		return (
 			<div>
 				<button className="wizzy-switch btn btn-default" onClick={() => this.setState({ isWizzy: !this.state.isWizzy })}>Switch to WYSIWYG Editor</button>
+				<span class="danger">Switching back to the WYSIWYG view and making changes will overwrite your pasted HTML. Be careful!</span>
 				<AceEditor
 					mode="html"
 					theme="solarized_light"

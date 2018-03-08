@@ -24,13 +24,10 @@ class App extends Component {
 	}
 
 	handleGenerateCodeClick() {
-		let output = '';
-
-		this.state.accordionatorHtmlOutput.map((outputObject, index) => {
+		const output = this.state.accordionatorHtmlOutput.map((outputObject, index) => {
 			const panelTitle = this.cleanStringForId(outputObject.title);
 
-			output = output +
-			`<div class="panel">
+			return `<div class="panel">
 				<${this.state.headingType} id="${panelTitle}-heading-${index}">
 					<a aria-controls="${panelTitle}-panel-${index}" 
 						aria-expanded="false" 
@@ -49,13 +46,11 @@ class App extends Component {
 				</div>
 			</div>
 			`;
-
-			return output;
 		});
 
 		const code = 
 		`<!-- BEGIN ${this.state.accordionTitleForIds} ACCORDION -->
-		<div aria-multiselectable="true" class="content-accordion" id="${this.state.accordionTitleForIds}" role="tablist">${output}</div>
+		<div aria-multiselectable="true" class="content-accordion" id="${this.state.accordionTitleForIds}" role="tablist">${output.join('')}</div>
 		<!-- END ${this.state.accordionTitleForIds} ACCORDION -->`;
 
 		this.setState({ code });

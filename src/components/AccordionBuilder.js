@@ -35,7 +35,6 @@ class AccordionBuilder extends Component {
 						<div className="form-group">
 							<label htmlFor={`accordion-builder-content-${this.props.index}`}>{`Panel ${this.props.index + 1} Body`}</label>
 							<Wizzy onChange={this.handleWizzyChange} />
-							{ /* <textarea id={`accordion-builder-content-${this.props.index}`} className="form-control" rows="5"></textarea> */ }
 						</div>	
 						<hr/>					
 					</div>

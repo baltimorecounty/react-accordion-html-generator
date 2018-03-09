@@ -27,6 +27,8 @@ class AccordionaterOutput extends Component {
 	}
 
 	render() {
+		// You may notice pretty() is being called twice separately. When the two calls
+		// are combined into a const, they don't change as the page content changes.
 		return (
 			<div className="row">
 				<div className="col-md-12">

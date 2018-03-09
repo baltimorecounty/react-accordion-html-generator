@@ -60,7 +60,7 @@ class Accordionater extends Component {
 	render() {
 		const accordions = [];
 
-		for (let x = 0; x < this.state.panelCount; x += 1) {
+		for (let x = 1; x <= this.state.panelCount; x += 1) {
 			accordions.push(<AccordionBuilder index={x} key={`panel${x}`} onWizzyChange={(title, value) => this.handleWizzyChange(title, value, x)} />);
 		}
 

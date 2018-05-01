@@ -11,7 +11,7 @@ class Wizzy extends Component {
 		this.state = {
 			wizzyValue: RichTextEditor.createEmptyValue(),
 			html: '',
-			isWizzy: true,
+			isWizzy: false,
 		};
 
 		this.onRichTextEditorChange = this.onRichTextEditorChange.bind(this);
@@ -61,7 +61,7 @@ class Wizzy extends Component {
 			<div>
 				<div className="wizzy-switch-wrapper">
 					<button className="wizzy-switch btn btn-default" onClick={this.handleSwitch}>Switch to WYSIWYG Editor</button>
-					<span className="wizzy-switch-danger">Switching back to the WYSIWYG view and making changes will overwrite your pasted HTML. Be careful!</span>
+					<span className="wizzy-switch-danger">Switching back to the WYSIWYG view and making changes will overwrite your HTML. Be careful!</span>
 				</div>
 				<AceEditor
 					mode="html"

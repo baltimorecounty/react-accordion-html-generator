@@ -1,6 +1,6 @@
 # The Accordion Generator for BCPL
 
-This accordion generator write bootstrap (v3.3.7) accordion code for you. You can find it in the BCPL site's tools folder.
+This accordion generator writes bootstrap (v3.3.7) accordion code for you. You can find it in the BCPL site's tools folder.
 
 ## Build and Deploy
 

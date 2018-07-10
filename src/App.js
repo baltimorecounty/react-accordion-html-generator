@@ -27,7 +27,7 @@ class App extends Component {
 	handleGenerateCodeClick() {
 		const output = this.state.accordionatorHtmlOutput.map(this.generateHtmlFromTemplate);
 
-		const code = 
+		const code =
 		`<!-- BEGIN ${this.state.accordionTitleForIds} ACCORDION -->
 		<div aria-multiselectable="true" class="content-accordion" id="${this.state.accordionTitleForIds}" role="tablist">${output.join('')}</div>
 		<!-- END ${this.state.accordionTitleForIds} ACCORDION -->`;
@@ -48,11 +48,11 @@ class App extends Component {
 			}
 		}
 
-		outputArrayCopy[index] = { 
-			title: title || '',  
+		outputArrayCopy[index] = {
+			title: title || '',
 			body: body || ''
 		};
-		
+
 		this.setState({ accordionatorHtmlOutput: outputArrayCopy});
 	}
 
@@ -73,10 +73,9 @@ class App extends Component {
 
 		return `<div class="panel">
 			<${this.state.headingType} id="${panelTitle}-heading-${index}">
-				<a aria-controls="${panelTitle}-panel-${index}" 
-					aria-expanded="false" 
-					class="collapsed flex flex-row" 
-					data-parent="#${this.state.accordionTitleForIds}" 
+				<a aria-controls="${panelTitle}-panel-${index}"
+					aria-expanded="false"
+					class="collapsed flex flex-row"
 					data-toggle="collapse"
 					href="#${panelTitle}-panel-${index}" role="button">
 					<i aria-hidden="true" class="fa fa-chevron-right">&nbsp;</i>
@@ -101,11 +100,11 @@ class App extends Component {
 						<p>Welcome to Accordionater, the bootstrap accordion generator for the Baltimore County sites.</p>
 					</div>
 				</div>
-				
-				<Accordionater 
-					onWizzyChange={this.handleWizzyChange} 
-					onGenerateCodeClick={this.handleGenerateCodeClick} 
-					onAccordionTitleChange={this.handleAccordionTitleChange} 
+
+				<Accordionater
+					onWizzyChange={this.handleWizzyChange}
+					onGenerateCodeClick={this.handleGenerateCodeClick}
+					onAccordionTitleChange={this.handleAccordionTitleChange}
 					onHeadingTypeChange={this.handleHeadingTypeChange}
 				/>
 				<br/>

@@ -15,3 +15,6 @@ This accordion generator writes bootstrap (v3.3.7) accordion code for you. You c
 
 ### 5/14/2018
 - Changed the default editor to html from wysiwyg [Issue #6](https://github.com/baltimorecounty/accordion-html-generator-react/issues/6)
+
+### 7/10/2018
+- [Removed data-parent attribute](https://github.com/baltimorecounty/accordion-html-generator-react/issues/12) to remove accordion functionality. Each panel will work independently of the others.

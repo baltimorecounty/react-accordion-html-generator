@@ -80,7 +80,7 @@ class App extends Component {
 
     return `<div class="panel">
 			<${this.state.headingType} id="${panelTitle}-heading-${index}">
-				<a aria-controls="${panelTitle}-panel-${index}"
+				<a aria-controls="${panelTitle}-panel-${index}"F
 					aria-expanded="false"
 					class="collapsed flex flex-row"
           data-toggle="collapse"

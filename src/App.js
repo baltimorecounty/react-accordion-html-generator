@@ -83,7 +83,8 @@ class App extends Component {
 				<a aria-controls="${panelTitle}-panel-${index}"
 					aria-expanded="false"
 					class="collapsed flex flex-row"
-					data-toggle="collapse"
+          data-toggle="collapse"
+          
 					href="https://#${panelTitle}-panel-${index}" role="button">
 					<i aria-hidden="true" class="fa fa-chevron-right">&nbsp;</i>
 					<span class="flex">${outputObject.title}</span>
